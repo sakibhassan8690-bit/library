@@ -3,170 +3,208 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>My Profile</title>
-<!-- আইকনের জন্য FontAwesome যুক্ত করা হলো -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+<title>JOY LIBRARY</title>
+
+<!-- Font Awesome -->
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"/>
+
 <style>
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  
-  /* পেজের মাল্টি-কালার ব্যাকগ্রাউন্ড ও অ্যানিমেশন */
-  body {
-    font-family: 'Segoe UI', sans-serif;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(45deg, #ff6b6b, #48dbfb, #1dd1a1, #feca57);
-    background-size: 300% 300%;
-    animation: gradientMove 6s ease infinite;
-    padding: 20px;
-  }
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
 
-  @keyframes gradientMove { 
-    0% { background-position: 0% 50%; } 
-    50% { background-position: 100% 50%; } 
-    100% { background-position: 0% 50%; } 
-  }
+body{
+font-family:Segoe UI,sans-serif;
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+padding:20px;
+background:linear-gradient(45deg,#ff6b6b,#48dbfb,#1dd1a1,#feca57);
+background-size:300% 300%;
+animation:bg 8s ease infinite;
+}
 
-  /* ছবি সেট করার জন্য আপগ্রেড করা কার্ড ডিজাইন */
-  .card {
-    /* [এখানে পরিবর্তন করুন] 'card-background.png' এর জায়গায় আপনার ছবির নাম অথবা ছবির অনলাইন লিংক বসাতে পারেন।
-       সামনের 'linear-gradient' অংশটি ছবিকে হালকা ডার্ক রাখবে যাতে লেখাগুলো স্পষ্ট থাকে। */
-    background: linear-gradient(rgba(17, 20, 30, 0.10), rgba(17, 20, 30, 0.10)), 
-                url('box.png') no-repeat center center;
-    background-size: cover; /* ছবি যেন কার্ডের সাথে সুন্দরভাবে ফিট হয় */
-    
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    border-radius: 15px;
-    padding: 40px;
-    max-width: 380px;
-    width: 100%;
-    text-align: center;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-    position: relative;
-    overflow: hidden;
-  }
+@keyframes bg{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+}
 
-  /* প্রোফাইল রিং */
-  .profile-pic-wrapper {
-    position: relative;
-    width: 140px;
-    height: 140px;
-    margin: 0 auto 20px;
-    padding: 3px; 
-    border-radius: 50%;
-    background: linear-gradient(45deg, #ff6b6b, #48dbfb, #1dd1a1, #feca57);
-    animation: rotate 0s linear infinite;
-    z-index: 2;
-  }
-  @keyframes rotate { to { transform: rotate(360deg); } }
-  .profile-pic {
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    object-fit: cover;
-    background: #fff;
-  }
+.card{
+width:100%;
+max-width:380px;
+padding:35px;
+border-radius:18px;
 
-  /* নামের জন্য টেক্সট গ্রেডিয়েন্ট */
-  .name { 
-    font-size: 26px; 
-    font-weight: 800; 
-    background: linear-gradient(45deg, #ff6b6b, #48dbfb, #1dd1a1, #feca57);
-    background-size: 300% 300%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: gradientMove 4s ease infinite;
-    margin-bottom: 5px; 
-    display: inline-block;
-    letter-spacing: 1px;
-    position: relative;
-    z-index: 2;
-  }
+background:
+linear-gradient(rgba(0,0,0,.25),rgba(0,0,0,.25)),
+url("box.png") center/cover no-repeat;
 
-  .bio { font-size: 14px; color: #cbd5e1; margin-bottom: 30px; position: relative; z-index: 2; }
+box-shadow:0 15px 35px rgba(0,0,0,.4);
+border:1px solid rgba(255,255,255,.2);
+text-align:center;
+}
 
-  /* বাটনের সাধারণ বেস স্টাইল */
-  .btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-    width: 100%;
-    padding: 15px;
-    margin-bottom: 15px;
-    border-radius: 9px;
-    color: #ffffff;
-    font-size: 15px;
-    font-weight: 600;
-    text-decoration: none;
-    border: none;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-    cursor: pointer;
-    position: relative;
-    z-index: 2;
-  }
-  .btn:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.45);
-  }
-  .btn i { font-size: 18px; }
+.profile-wrapper{
+width:140px;
+height:140px;
+margin:auto;
+padding:4px;
+border-radius:50%;
+background:linear-gradient(45deg,#ff6b6b,#48dbfb,#1dd1a1,#feca57);
+}
 
-  /* ১. ফেসবুক ব্র্যান্ড বাটন */
-  .btn-facebook {
-    background: #1877F2;
-  }
-  .btn-facebook:hover {
-    background: #1565c0;
-  }
+.profile{
+width:100%;
+height:100%;
+border-radius:50%;
+object-fit:cover;
+background:#fff;
+}
 
-  /* ২. হোয়াটসঅ্যাপ ব্র্যান্ড বাটন */
-  .btn-whatsapp {
-    background: #25D366;
-  }
-  .btn-whatsapp:hover {
-    background: #1ebd52;
-  }
+.name{
+margin-top:20px;
+font-size:28px;
+font-weight:700;
+background:linear-gradient(45deg,#ff6b6b,#48dbfb,#1dd1a1,#feca57);
+background-size:300% 300%;
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+animation:bg 5s infinite;
+}
 
-  /* ৩. টিকটক ব্র্যান্ড বাটন */
-  .btn-tiktok {
-    background: #000000;
-    border: 1px solid rgba(255, 255, 255, 0.15);
-  }
-  .btn-tiktok:hover {
-    background: #111111;
-    border-color: transparent;
-    box-shadow: -3px -3px 8px #00f2fe, 3px 3px 8px #fe0979; 
-  }
+.bio{
+margin:8px 0 25px;
+color:#fff;
+font-size:15px;
+}
 
-  /* ৪. ইনস্টাগ্রাম ব্র্যান্ড বাটন */
-  .btn-instagram {
-    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
-  }
-  .btn-instagram:hover {
-    filter: brightness(1.1); 
-  }
+.social-btn{
+width:100%;
+display:flex;
+align-items:center;
+justify-content:center;
+gap:12px;
+padding:15px;
+margin-bottom:15px;
+border-radius:10px;
+text-decoration:none;
+font-size:16px;
+font-weight:600;
+color:#fff;
+transition:.3s;
+min-height:56px;
+}
+
+.social-btn i{
+font-size:20px;
+}
+
+.social-btn:hover{
+transform:translateY(-3px);
+}
+
+.facebook{
+background:#1877F2;
+}
+
+.facebook:hover{
+background:#0f63d8;
+}
+
+.whatsapp{
+background:#25D366;
+}
+
+.whatsapp:hover{
+background:#1ebd52;
+}
+
+.instagram{
+background:linear-gradient(45deg,#f09433,#dc2743,#bc1888);
+}
+
+.instagram:hover{
+filter:brightness(1.1);
+}
+
+.tiktok{
+background:#000;
+}
+
+.tiktok:hover{
+box-shadow:-3px -3px 10px #00f2fe,3px 3px 10px #ff0050;
+}
+
+@media(max-width:400px){
+
+.card{
+padding:25px;
+}
+
+.profile-wrapper{
+width:120px;
+height:120px;
+}
+
+.name{
+font-size:24px;
+}
+
+.social-btn{
+padding:14px;
+font-size:15px;
+}
+
+}
 </style>
 </head>
+
 <body>
 
-  <div class="card">
-    <div class="profile-pic-wrapper">
-      <img class="profile-pic" src="profile.png" alt="Profile Picture">
-    </div>
+<div class="card">
 
-    <div class="name">JOY LIBRARY</div>
-    <div class="bio">📍 Lakshmipur, Bangladesh</div>
+<div class="profile-wrapper">
+<img src="profile.png" class="profile" alt="Profile">
+</div>
 
-    
-    <a class="btn btn-facebook" href="https://www.facebook.com/share/1F3Z5ySMwb/" target="_blank">
-      <i class="fab fa-facebook-f"></i> Facebook
-    </a>
-    <a class="btn btn-whatsapp" href="https://wa.me/8801576422185" target="_blank">
-      <i class="fab fa-whatsapp"></i> WhatsApp
-    </a>
-  </div>
+<h2 class="name">JOY LIBRARY</h2>
+
+<p class="bio">📍 Lakshmipur, Bangladesh</p>
+
+<a class="social-btn facebook"
+href="https://www.facebook.com/share/1F3Z5ySMwb/"
+target="_blank">
+<i class="fa-brands fa-facebook-f"></i>
+Facebook
+</a>
+
+<a class="social-btn whatsapp"
+href="https://wa.me/8801576422185"
+target="_blank">
+<i class="fa-brands fa-whatsapp"></i>
+WhatsApp
+</a>
+
+<a class="social-btn instagram"
+href="#"
+target="_blank">
+<i class="fa-brands fa-instagram"></i>
+Instagram
+</a>
+
+<a class="social-btn tiktok"
+href="#"
+target="_blank">
+<i class="fa-brands fa-tiktok"></i>
+TikTok
+</a>
+
+</div>
 
 </body>
 </html>
